@@ -1,5 +1,7 @@
 {
   "name": "facebook_clone",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
 }
