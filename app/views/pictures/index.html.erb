@@ -1,0 +1,17 @@
+<h1>投稿一覧</h1>
+<article>
+  <div class="container">
+    <% @pictures.each do |f| %>
+      <ul class="row">
+        <li class="col-md-4"><%= f.title %></li>
+        <li class="col-md-4"><%= image_tag f.image.url %></li>
+        <li class="col-md-4"><%= f.content %></li>
+        <li class="col-md-4"><%= x = f.user.name  %></li>
+        <li class="col-md-4"><%= f.updated_at  %></li>
+        <li class="col-md-4"><%= link_to "編集", edit_picture_path(f.id) %></li>
+        <li class="col-md-4"><%= link_to "削除", picture_path(f.id) ,method: :delete, data:{confirm:"本当に削除しても良いですか？"} %></li>
+      </ul>
+    <% end %>
+  </div>
+  <%= link_to "新規作成", new_picture_path %>
+</article>
