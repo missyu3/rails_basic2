@@ -92,6 +92,7 @@ GEM
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     io-like (0.3.1)
+    irb (1.0.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     listen (3.1.5)
@@ -211,6 +212,7 @@ DEPENDENCIES
   carrierwave (~> 2.0)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  irb
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mini_magick
