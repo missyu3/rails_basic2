@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Image:</strong>
-  <%= image_tag @picture.image.url %>
+  <div class='image_size'>
+    <%= image_tag @picture.image.url %>
+  </div>
 </p>
 <%= link_to 'Edit', edit_feed_path(@picture) %>
 <%= link_to 'Back', feeds_path %>

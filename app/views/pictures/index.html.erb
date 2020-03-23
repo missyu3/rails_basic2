@@ -1,17 +1,23 @@
-<h1>投稿一覧</h1>
 <article>
+  <h1>投稿一覧</h1>
+  <div class="btn-square-soft">
+    <%= link_to "新規作成", new_picture_path %>  
+  </div>
   <div class="container">
     <% @pictures.each do |f| %>
       <ul class="row">
-        <li class="col-md-4"><%= f.title %></li>
-        <li class="col-md-4"><%= image_tag f.image.url %></li>
-        <li class="col-md-4"><%= f.content %></li>
-        <li class="col-md-4"><%= x = f.user.name  %></li>
-        <li class="col-md-4"><%= f.updated_at  %></li>
-        <li class="col-md-4"><%= link_to "編集", edit_picture_path(f.id) %></li>
-        <li class="col-md-4"><%= link_to "削除", picture_path(f.id) ,method: :delete, data:{confirm:"本当に削除しても良いですか？"} %></li>
+        <div class='image_size'>
+          <li class="col-sm-12 row_title"><%= f.title %></li>
+          <li class="col-sm-6 row_image"><%= image_tag f.image.url%></li>
+          <li class="col-sm-6 row_content"><%= f.content %></li>
+          <li class="col-sm-6 row_remark"><%= "作成者 : #{f.user.name}" %></li>
+          <li class="col-sm-2 row_remark"><%= f.updated_at  %></li>
+          <% if current_user_content?(f.user) %>
+            <li class="col-sm-2 row_remark"><%= link_to "編集", edit_picture_path(f.id) %></li>
+            <li class="col-sm-2 row_remark"><%= link_to "削除", picture_path(f.id) ,method: :delete, data:{confirm:"本当に削除しても良いですか？"} %></li>
+          <% end  %>
+        </div>
       </ul>
     <% end %>
   </div>
-  <%= link_to "新規作成", new_picture_path %>
 </article>
