@@ -6,7 +6,11 @@ class PicturesController < ApplicationController
   end
 
   def new
-    @picture = Picture.new
+    if params[:back]
+      @picture = current_user.pictures.new(get_params)
+    else
+      @picture = Picture.new
+    end
   end
 
   def create
@@ -38,6 +42,11 @@ class PicturesController < ApplicationController
     else
       render:edit
     end
+  end
+
+  def confirm
+    @picture = current_user.pictures.new(get_params)
+    render :new if @picture.invalid?
   end
 
   private
